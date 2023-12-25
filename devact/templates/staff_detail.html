@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Details</title>
+    <style>
+        /* Your existing CSS styles here */
+
+        /* Additional styles for staff_detail.html */
+        #details-container {
+            margin-top: 20px;
+        }
+
+        #details-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        #details-container th, #details-container td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #details-container th {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Staff Details</h2>
+
+    <div id="staff_details">
+        {% if staff_details %}
+            <table>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Training Name</th>
+                    <th>Work Name</th>
+                    <th>Project Details</th>
+                </tr>
+                {% for staff_detail in staff_details %}
+                    <tr>
+                        <td>{{ staff_detail.staffid }}</td>
+                        <td>{{ staff_detail.t_name }}</td>
+                        <td>{{ staff_detail.w_name }}</td>
+                        <td>{{ staff_detail.pda }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No staff details found for the provided ID.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
